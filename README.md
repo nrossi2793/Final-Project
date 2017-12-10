@@ -15,4 +15,7 @@ Here is my completed project. I was able to make my data connection to LastFM an
 album/artist data to my page. Each album displays the artist, album title and list of tracks. 
 I was going back and forth with exactly how to get back the data and I ended up doing some digging and having good luck using 
 the fetch function. It seemed more straightforward to me and worked after a couple experiments. The styling is pretty basic, I mainly
-just focused this whole week on bringing everything together just to have a functioning page. I can't believe I made it to the end!
+just focused this whole week on bringing everything together just to have a functioning page. I'd like to experiment more with styling but
+I felt the most important elements were in the javascript. I wasn't sure how to get rid of the numbers pertaining to the tracks list, so maybe thats something else to experiment with as well. I can't believe I made it to the end, this was by far the most challenging course
+I've ever taken at Berklee. I don't know if I'll ever look at a piece of code again, but I certainly am much more in tune with what is 
+happening behind the scenes on the web.
