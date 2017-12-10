@@ -16,19 +16,88 @@
     <ol id="tracks">
     </ol>
 
-<script>
+    <script>
 
-//When you click Sacrament
-document.getElementById('sacrament').addEventListener('click', function(){
-  getAlbum("Lamb Of God", "Sacrament");
-})
+        //When you click Sacrament
+        document.getElementById("sacrament").addEventListener('click', function(){
+            getAlbum("Lamb Of God", "Sacrament");
+        })
 
-//When you click Dive
-document.getElementById('dive').addEventListener('click', function(){
-  getAlbum("Tycho", "Dive");
-})
+        //When you click Dive
+        document.getElementById("dive").addEventListener('click', function(){
+            getAlbum("Tycho", "Dive");
+        })
 
-//When you click Abandon ship
-document.getElementById('abandonship').addEventListener('click', function(){
-  getAlbum("Knife Party", "Abandon Ship");
-})
+        //When you click Abandon Ship
+        document.getElementById("abandonShip").addEventListener('click', function(){
+            getAlbum("Knife Party", "Abandon Ship");
+        })
+
+        let artistInfo;
+
+        function getAlbum(artistName, albumName){
+
+            let url = `http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=${artistName}&album=${albumName}&api_key=02b6a7c0ad8e4ef9bbb58fda76f34811&format=json`;
+        fetch(url).then(data=> data.json())
+            .then((data) =>{
+                console.log(data);
+                setDescription(data.album);
+            })
+        }
+
+
+        function setDescription(data){
+            document.getElementById("artistName").innerHTML = data.artist
+            document.getElementById("albumName").innerHTML = data.name;
+
+            removeListItems();
+
+            //Loop through the tracks
+            data.tracks.track.forEach((track)=>{
+
+                let listItem = document.createElement("li");
+                listItem.innerHTML = track.name;
+                document.querySelector("#tracks").appendChild(listItem);
+            });
+        }
+
+        function removeListItems(){
+            var lis = document.querySelectorAll('#tracks li');
+            for(var i=0; li=lis[i]; i++) {
+                 li.parentNode.removeChild(li);
+            }
+        }
+    </script>
+
+    <style>
+        .image {
+            height: 200px;
+            width: 200px;
+            cursor: pointer;
+            transition: 300ms;
+        }
+
+
+        .albumArea {
+            width: 700px;
+            display: block;
+            margin: auto;
+        }
+
+        h2, h1 {
+            text-align: center;
+        }
+
+        html {
+            min-height: 100%;
+            background-image: white
+        }
+
+        ol#tracks {
+    text-align: center;
+}
+
+
+    </style>
+</body>
+</html>
